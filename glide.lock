@@ -1,0 +1,14 @@
+hash: b6d1cd8cde2083e3ce5f147388636eff3279b5fa859a6c7e1c66adde150d25c3
+updated: 2018-02-16T15:25:55.239179+05:30
+imports:
+- name: github.com/gorilla/mux
+  version: 53c1911da2b537f792e7cafcb446b05ffe33b996
+- name: github.com/lib/pq
+  version: 88edab0803230a3898347e77b474f8c1820a1f20
+- name: github.com/mattes/migrate
+  version: 035c07716cd373d88456ec4d701402df52584cb4
+- name: github.com/spf13/viper
+  version: 25b30aa063fc18e48662b86996252eabdcf2f0c7
+- name: github.com/urfave/cli
+  version: cfb38830724cc34fedffe9a2a29fb54fa9169cd1
+testImports: []
