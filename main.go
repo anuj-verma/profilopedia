@@ -11,7 +11,10 @@ func main() {
 	fmt.Println("Loading app configuration file...")
 	config.LoadConfig("./config")
 
-	fmt.Println(config.GithubApiUrl())
-	github_client := services.GetGithubClient(config.GithubApiUrl())
-	github_client.Search("anuj")
+	githubClient := services.GetGithubClient(config.GithubApiUrl())
+	githubClient.Search("anuj", config.DefaultPage(), config.DefaultPerPage())
+	data := githubClient.Response
+	for _, value := range data.Items {
+		fmt.Println(value)
+	}
 }

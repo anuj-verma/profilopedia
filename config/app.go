@@ -7,8 +7,10 @@ import (
 var appConfig *Config
 
 type Config struct {
-	port           string
-	github_api_url string
+	Port           string
+	GithubApiUrl   string
+	DefaultPage    int
+	DefaultPerPage int
 }
 
 func LoadConfig(configPaths ...string) {
@@ -19,15 +21,25 @@ func LoadConfig(configPaths ...string) {
 	}
 	viper.ReadInConfig()
 	appConfig = &Config{
-		port:           viper.GetString("PORT"),
-		github_api_url: viper.GetString("GITHUB_API_URL"),
+		Port:           viper.GetString("PORT"),
+		GithubApiUrl:   viper.GetString("GITHUB_API_URL"),
+		DefaultPage:    viper.GetInt("DEFAULT_PAGE"),
+		DefaultPerPage: viper.GetInt("DEFAULT_PER_PAGE"),
 	}
 }
 
 func Port() string {
-	return appConfig.port
+	return appConfig.Port
 }
 
 func GithubApiUrl() string {
-	return appConfig.github_api_url
+	return appConfig.GithubApiUrl
+}
+
+func DefaultPage() int {
+	return appConfig.DefaultPage
+}
+
+func DefaultPerPage() int {
+	return appConfig.DefaultPerPage
 }
