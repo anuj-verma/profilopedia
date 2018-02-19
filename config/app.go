@@ -1,4 +1,4 @@
-package app
+package profilopedia
 
 import (
 	"github.com/spf13/viper"
@@ -7,7 +7,8 @@ import (
 var appConfig *Config
 
 type Config struct {
-	port string
+	port           string
+	github_api_url string
 }
 
 func LoadConfig(configPaths ...string) {
@@ -18,10 +19,15 @@ func LoadConfig(configPaths ...string) {
 	}
 	viper.ReadInConfig()
 	appConfig = &Config{
-		port: viper.GetString("PORT"),
+		port:           viper.GetString("PORT"),
+		github_api_url: viper.GetString("GITHUB_API_URL"),
 	}
 }
 
 func Port() string {
 	return appConfig.port
+}
+
+func GithubApiUrl() string {
+	return appConfig.github_api_url
 }
