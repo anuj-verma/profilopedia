@@ -11,10 +11,11 @@ func main() {
 	fmt.Println("Loading app configuration file...")
 	config.LoadConfig("./config")
 
-	githubClient := services.GetGithubClient(config.GithubApiUrl())
-	githubClient.Search("anuj", config.DefaultPage(), config.DefaultPerPage())
-	data := githubClient.Response
-	for _, value := range data.Items {
-		fmt.Println(value)
-	}
+  accessToken := config.FacebookAccessToken()
+  fbClient := services.GetFacebookClient(accessToken)
+  items := fbClient.UserSearch("varsha yadav")
+  for _, item := range items {
+		userProfile := fbClient.GetUserInfo(item.Id)
+		fmt.Println(userProfile)
+  }
 }
