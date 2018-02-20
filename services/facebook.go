@@ -41,9 +41,11 @@ type SearchResult struct {
   Name string `json:"name"`
 }
 
-func GetFacebookClient(accessToken string) FacebookClient {
+func GetFacebookClient(appId, appSecret string) FacebookClient {
+  app := fb.New(appId, appSecret)
+
   facebookClient := FacebookClient{
-    accessToken: accessToken,
+    accessToken: app.AppAccessToken(),
   }
   return facebookClient
 }
@@ -62,7 +64,7 @@ func (facebookClient *FacebookClient) GetUserInfo(userId string) UserProfile {
   return userProfile
 }
 
-func (facebookClient *FacebookClient) UserSearch(query string) []SearchResult {
+func (facebookClient *FacebookClient) SearchByQuery(query string) []SearchResult {
   res, _ := fb.Get("/search", fb.Params{
         "access_token": facebookClient.accessToken,
         "type":         "page",

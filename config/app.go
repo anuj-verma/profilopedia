@@ -11,7 +11,8 @@ type Config struct {
 	GithubApiUrl   string
 	DefaultPage    int
 	DefaultPerPage int
-	FacebookAccessToken string
+	FacebookAppId string
+	FacebookAppSecret string
 }
 
 func LoadConfig(configPaths ...string) {
@@ -22,11 +23,12 @@ func LoadConfig(configPaths ...string) {
 	}
 	viper.ReadInConfig()
 	appConfig = &Config{
-		Port:           viper.GetString("PORT"),
-		GithubApiUrl:   viper.GetString("GITHUB_API_URL"),
-		DefaultPage:    viper.GetInt("DEFAULT_PAGE"),
+		Port: viper.GetString("PORT"),
+		GithubApiUrl: viper.GetString("GITHUB_API_URL"),
+		DefaultPage: viper.GetInt("DEFAULT_PAGE"),
 		DefaultPerPage: viper.GetInt("DEFAULT_PER_PAGE"),
-		FacebookAccessToken: viper.GetString("FACEBOOK_ACCESS_TOKEN"),
+		FacebookAppId: viper.GetString("FACEBOOK_APP_ID"),
+		FacebookAppSecret: viper.GetString("FACEBOOK_APP_SECRET"),
 	}
 }
 
@@ -46,6 +48,10 @@ func DefaultPerPage() int {
 	return appConfig.DefaultPerPage
 }
 
-func FacebookAccessToken() string {
-	return appConfig.FacebookAccessToken
+func FacebookAppId() string {
+	return appConfig.FacebookAppId
+}
+
+func FacebookAppSecret() string {
+	return appConfig.FacebookAppSecret
 }

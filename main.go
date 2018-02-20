@@ -7,15 +7,16 @@ import (
 	services "github.com/anuj-verma/profilopedia/services"
 )
 
+
 func main() {
 	fmt.Println("Loading app configuration file...")
 	config.LoadConfig("./config")
 
-  accessToken := config.FacebookAccessToken()
-  fbClient := services.GetFacebookClient(accessToken)
-  items := fbClient.UserSearch("varsha yadav")
-  for _, item := range items {
-		userProfile := fbClient.GetUserInfo(item.Id)
+	facebookClient := services.GetFacebookClient(config.FacebookAppId(), config.FacebookAppSecret())
+	users := facebookClient.SearchByQuery("varsha yadav")
+
+	for _, user := range users {
+		userProfile := facebookClient.GetUserInfo(user.Id)
 		fmt.Println(userProfile)
-  }
+	}
 }
