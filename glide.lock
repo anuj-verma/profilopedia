@@ -1,5 +1,5 @@
-hash: baaea9553a5c1bbde638527f72ccfb4278b1fb100d6b56ed6639d585f6b0eea1
-updated: 2018-02-20T11:48:42.027954+05:30
+hash: 7ff41f669b449ac402f2873fec9c907101b2720acec101bb073c063c49a35005
+updated: 2018-02-20T13:04:38.144867+05:30
 imports:
 - name: github.com/cenkalti/backoff
   version: 2ea60e5f094469f9e65adb9cd103795b73ae743e
@@ -34,12 +34,12 @@ imports:
   version: 88edab0803230a3898347e77b474f8c1820a1f20
 - name: github.com/magiconair/properties
   version: c3beff4c2358b44d0493c7dda585e7db7ff28ae6
-- name: github.com/mattes/migrate
-  version: 035c07716cd373d88456ec4d701402df52584cb4
 - name: github.com/mitchellh/mapstructure
   version: a4e142e9c047c904fa2f1e144d9a84e6133024bc
 - name: github.com/pelletier/go-toml
   version: acdc4509485b587f5e675510c4f2c63e90ff68a8
+- name: github.com/pressly/goose
+  version: b0454a40a91539e75a3e7e98677456e9789dfb95
 - name: github.com/spf13/afero
   version: bbf41cb36dffe15dff5bf7e18c447801e7ffe163
   subpackages:
