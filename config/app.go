@@ -15,6 +15,9 @@ type Config struct {
 	TwitterConsumerSecret    string
 	TwitterAccessToken       string
 	TwitterAccessTokenSecret string
+	DbUser                   string
+	DbName                   string
+	DbPassword               string
 }
 
 func LoadConfig(configPaths ...string) {
@@ -33,6 +36,9 @@ func LoadConfig(configPaths ...string) {
 		TwitterConsumerSecret:    viper.GetString("TWITTER_CONSUMER_SECRET"),
 		TwitterAccessToken:       viper.GetString("TWITTER_ACCESS_TOKEN"),
 		TwitterAccessTokenSecret: viper.GetString("TWITTER_ACCESS_TOKEN_SECRET"),
+		DbUser:     viper.GetString("DB_USER"),
+		DbName:     viper.GetString("DB_NAME"),
+		DbPassword: viper.GetString("DB_PASSWORD"),
 	}
 }
 
@@ -66,4 +72,16 @@ func TwitterAccessToken() string {
 
 func TwitterAccessTokenSecret() string {
 	return appConfig.TwitterAccessTokenSecret
+}
+
+func DbName() string {
+	return appConfig.DbName
+}
+
+func DbUser() string {
+	return appConfig.DbUser
+}
+
+func DbPassword() string {
+	return appConfig.DbPassword
 }
